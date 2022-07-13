@@ -1,0 +1,23 @@
+@import '../../styles/colors.scss';
+
+.mainContainer {
+  width: 100%;
+  background-color: $color-primary;
+  color: $color-text-primary;
+  padding: 10px 20px;
+  border: 1px solid $color-borders;
+  border-radius: 4px;
+  &:hover {
+    border-color: $color-borders-hover;
+  }
+  h2 {
+    margin-top: 9px;
+  }
+}
+
+.idContainer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: $color-text-secondary;
+}

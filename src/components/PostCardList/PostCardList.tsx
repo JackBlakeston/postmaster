@@ -1,4 +1,4 @@
-import styles from './PostCardList.module.css';
+import styles from './PostCardList.module.scss';
 import PostCard from '../PostCard/PostCard';
 import { useFetchPostsQuery } from '../../features/postsApi/postsApiSlice';
 

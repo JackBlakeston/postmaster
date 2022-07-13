@@ -1,5 +1,6 @@
 import { IPost } from "../../interfaces";
-import styles from './PostCard.module.css';
+import { capitalize } from "../../utils";
+import styles from './PostCard.module.scss';
 
 interface IPostCardProps {
   post: IPost;
@@ -8,10 +9,12 @@ interface IPostCardProps {
 const PostCard = ({ post }: IPostCardProps) => {
   return (
     <div className={styles.mainContainer}>
-      <p>User id: {post.userId}</p>
-      <p>Post id: {post.id}</p>
-      <p>Title: {post.title}</p>
-      <p>Body: {post.body}</p>
+      <div className={styles.idContainer}>
+        <span>Posted by User {post.userId}</span>
+        <span>Post id: {post.id}</span>
+      </div>
+      <h2>{capitalize(post.title)}</h2>
+      <p>{capitalize(post.body)}</p>
     </div>
   );
 };
