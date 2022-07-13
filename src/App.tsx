@@ -1,15 +1,9 @@
-import React from 'react';
-
-import './App.css';
-import { useFetchPostsQuery } from './features/postsApi/postsApiSlice';
+import PostCardList from "./components/PostCardList/PostCardList";
 
 function App() {
 
-  const {data = [], isFetching} = useFetchPostsQuery();
-  console.log(data);
   return (
-    <div>
-    </div>
+    <PostCardList/>
   );
 }
 
