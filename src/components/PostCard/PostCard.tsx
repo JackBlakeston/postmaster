@@ -1,5 +1,6 @@
 import { IPost } from "../../interfaces";
 import { capitalize } from "../../utils";
+import PostCardOverlay from "../PostCardOverlay/PostCardOverlay";
 import styles from './PostCard.module.scss';
 
 interface IPostCardProps {
@@ -7,14 +8,16 @@ interface IPostCardProps {
 }
 
 const PostCard = ({ post }: IPostCardProps) => {
+
   return (
     <div className={styles.mainContainer}>
+      <PostCardOverlay post={post}/>
       <div className={styles.idContainer}>
         <span>Posted by User {post.userId}</span>
         <span>Post id: {post.id}</span>
       </div>
       <h2>{capitalize(post.title)}</h2>
-      <p>{capitalize(post.body)}</p>
+      <span>{capitalize(post.body)}</span>
     </div>
   );
 };

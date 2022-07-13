@@ -1,6 +1,6 @@
 import PostCardList from "./components/PostCardList/PostCardList";
 
-function App() {
+const App = () => {
 
   return (
     <PostCardList/>

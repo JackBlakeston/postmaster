@@ -4,3 +4,5 @@ export interface IPost {
   title: string;
   body: string;
 }
+
+export type iconName = 'Delete' | 'Edit'
