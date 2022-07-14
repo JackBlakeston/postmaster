@@ -5,13 +5,14 @@ import styles from './PostCard.module.scss';
 
 interface IPostCardProps {
   post: IPost;
+  handleEditPostClick: (postId: number) => void;
 }
 
-const PostCard = ({ post }: IPostCardProps) => {
+const PostCard = ({ post, handleEditPostClick }: IPostCardProps) => {
 
   return (
     <div className={styles.mainContainer}>
-      <PostCardOverlay post={post}/>
+      <PostCardOverlay post={post} handleEditPostClick={handleEditPostClick}/>
       <div className={styles.idContainer}>
         <span>Posted by User {post.userId}</span>
         <span>Post id: {post.id}</span>

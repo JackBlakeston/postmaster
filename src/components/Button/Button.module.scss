@@ -13,7 +13,7 @@
   min-height: 50px;
   padding: 3px 10px;
   transition: 0.15s ease;
-  font-size: large;
+  font-size: 17px;
   &:hover {
     cursor: pointer;
     box-shadow: inset 150px 0 0 0 adjust-hue($color-button-borders, 45deg);
@@ -25,7 +25,7 @@
 };
 
 .icon {
-  width: 26px;
-  height: 26px;
+  width: 25px;
+  height: 25px;
   fill: $color-text-primary;
 }

@@ -15,10 +15,11 @@ const getIcon = (iconName: string) => {
 
 interface IButtonProps {
   text: string;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>; // TODO remove optional prop
   iconName?: iconName;
 }
 
-const Button = ({ text, iconName }: IButtonProps) => {
+const Button = ({ text, iconName, onClick }: IButtonProps) => {
 
   let icon;
 
@@ -27,7 +28,7 @@ const Button = ({ text, iconName }: IButtonProps) => {
   }
 
   return (
-    <button className={styles.mainContainer}>
+    <button onClick={onClick} className={styles.mainContainer}>
       <span>{text}</span>
       {icon}
     </button>
