@@ -1,0 +1,13 @@
+@import '../../styles/colors.scss';
+
+.mainContainer {
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+  font-size: large;
+  &:hover {
+    background-color: $color-element-hover;
+  }
+}

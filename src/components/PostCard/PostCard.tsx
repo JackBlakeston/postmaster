@@ -1,7 +1,7 @@
-import { IPost } from "../../interfaces";
+import { IPost } from "../../types";
 import { capitalize } from "../../utils";
-import PostCardOverlay from "../PostCardOverlay/PostCardOverlay";
 import styles from './PostCard.module.scss';
+import Dropdown from "../Dropdown/Dropdown";
 
 interface IPostCardProps {
   post: IPost;
@@ -12,11 +12,9 @@ const PostCard = ({ post, handleEditPostClick }: IPostCardProps) => {
 
   return (
     <div className={styles.mainContainer}>
-      <PostCardOverlay post={post} handleEditPostClick={handleEditPostClick}/>
-      <div className={styles.idContainer}>
-        <span>Posted by User {post.userId}</span>
-        <span>Post id: {post.id}</span>
-      </div>
+      <Dropdown iconClassName={styles.dropdownIcon}/>
+      {/* <PostCardOverlay post={post} handleEditPostClick={handleEditPostClick}/> */}
+      <span className={styles.userIdText}>Posted by User {post.userId}</span>
       <h2>{capitalize(post.title)}</h2>
       <span>{capitalize(post.body)}</span>
     </div>

@@ -5,4 +5,8 @@ export interface IPost {
   body: string;
 }
 
-export type iconName = 'Delete' | 'Edit' | 'New post'
+export enum IconName {
+  DELETE = 'delete',
+  EDIT = 'edit',
+  NEW = 'newPost'
+}
