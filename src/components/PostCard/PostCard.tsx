@@ -5,15 +5,26 @@ import Dropdown from "../Dropdown/Dropdown";
 
 interface IPostCardProps {
   post: IPost;
-  handleEditPostClick: (postId: number) => void;
+  handleEditClick: (postId: number) => void;
 }
 
-const PostCard = ({ post, handleEditPostClick }: IPostCardProps) => {
+const PostCard = ({ post, handleEditClick }: IPostCardProps) => {
+
+  const handleDeletePostClick = () => {
+    console.log('Delete post ', post.id)
+  }
+
+  const handleEditPostClick = () => {
+    handleEditClick(post.id);
+  }
 
   return (
     <div className={styles.mainContainer}>
-      <Dropdown iconClassName={styles.dropdownIcon}/>
-      {/* <PostCardOverlay post={post} handleEditPostClick={handleEditPostClick}/> */}
+      <Dropdown
+        iconClassName={styles.dropdownIcon}
+        handleEditPostClick={handleEditPostClick}
+        handleDeletePostClick={handleDeletePostClick}
+      />
       <span className={styles.userIdText}>Posted by User {post.userId}</span>
       <h2>{capitalize(post.title)}</h2>
       <span>{capitalize(post.body)}</span>

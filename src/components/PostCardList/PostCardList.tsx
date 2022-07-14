@@ -12,7 +12,7 @@ const PostCardList = () => {
   const [isEditModalVisible, setIsEditModalVisible] = useState<boolean>(false);
   const [selectedPost, setSelectedPost] = useState<number>(0);
 
-  const handleEditPostClick = (postId: number) => {
+  const openEditPostModal = (postId: number) => {
     setIsEditModalVisible(true);
     setSelectedPost(postId)
   }
@@ -22,7 +22,7 @@ const PostCardList = () => {
       setIsEditModalVisible(false);
     }
   }
-
+  // TODO add logic for loading
   return (
     <>
       <Modal isVisible={isEditModalVisible} handleClose={closeModal}>
@@ -32,7 +32,15 @@ const PostCardList = () => {
         {/* isFetching ?
           <p>Content is loading</p>
           : */
-          posts.map(post => <PostCard handleEditPostClick={handleEditPostClick} key={post.id} post={post} />)}
+          posts.map(post => {
+            return (
+              <PostCard
+                handleEditClick={openEditPostModal}
+                key={post.id}
+                post={post}
+              />
+            )
+          })}
       </div>
     </>
   );

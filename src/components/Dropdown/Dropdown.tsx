@@ -10,9 +10,11 @@ import { ReactComponent as DotsIcon } from '../../assets/icons/dots.svg';
 
 interface IDropdownProps {
   iconClassName: string;
+  handleEditPostClick: React.MouseEventHandler<HTMLDivElement>;
+  handleDeletePostClick: React.MouseEventHandler<HTMLDivElement>;
 }
 
-const Dropdown = ({ iconClassName }: IDropdownProps) => {
+const Dropdown = ({ iconClassName, handleEditPostClick, handleDeletePostClick }: IDropdownProps) => {
 
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
@@ -42,10 +44,10 @@ const Dropdown = ({ iconClassName }: IDropdownProps) => {
       </div>
       {isOpen &&
         <div ref={dropdownRef} className={styles.mainContainer}>
-          <DropdownItem label={EDIT}>
+          <DropdownItem label={EDIT} handleClick={handleEditPostClick}>
             <EditIcon className={styles.icon} />
           </DropdownItem>
-          <DropdownItem label={DELETE}>
+          <DropdownItem label={DELETE} handleClick={handleDeletePostClick}>
             <DeleteIcon className={styles.icon} />
           </DropdownItem>
         </div>
