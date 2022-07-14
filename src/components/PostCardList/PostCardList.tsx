@@ -1,13 +1,14 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux'
 
 import styles from './PostCardList.module.scss';
 import PostCard from '../PostCard/PostCard';
-import { useFetchPostsQuery } from '../../features/postsApi/postsApiSlice';
 import Modal from '../Modal/Modal';
+import { RootState } from '../../app/store';
 
 const PostCardList = () => {
 
-  const { data: posts = [], isFetching } = useFetchPostsQuery();
+  const posts = useSelector((state: RootState) => state.posts);
   const [isEditModalVisible, setIsEditModalVisible] = useState<boolean>(false);
   const [selectedPost, setSelectedPost] = useState<number>(0);
 
@@ -22,16 +23,15 @@ const PostCardList = () => {
     }
   }
 
-  // TODO refactor and add error handling
   return (
     <>
       <Modal isVisible={isEditModalVisible} handleClose={closeModal}>
         <h1>POST NO {selectedPost}</h1>
       </Modal>
       <div className={styles.mainContainer}>
-        {isFetching ?
+        {/* isFetching ?
           <p>Content is loading</p>
-          :
+          : */
           posts.map(post => <PostCard handleEditPostClick={handleEditPostClick} key={post.id} post={post} />)}
       </div>
     </>

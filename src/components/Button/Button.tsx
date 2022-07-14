@@ -1,7 +1,8 @@
 import styles from './Button.module.scss';
 import { ReactComponent as DeleteIcon } from '../../assets/icons/delete.svg';
 import { ReactComponent as EditIcon } from '../../assets/icons/edit.svg';
-import { DELETE, EDIT } from '../../constants';
+import { ReactComponent as NewPostIcon } from '../../assets/icons/newPost.svg';
+import { DELETE, EDIT, NEW_POST } from '../../constants';
 import { iconName } from '../../interfaces';
 
 const getIcon = (iconName: string) => {
@@ -10,6 +11,9 @@ const getIcon = (iconName: string) => {
   }
   if (iconName === EDIT) {
     return <EditIcon className={styles.icon} />
+  }
+  if (iconName === NEW_POST) {
+    return <NewPostIcon className={styles.icon} />
   }
 }
 

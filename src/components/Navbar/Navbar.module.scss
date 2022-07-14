@@ -1,0 +1,12 @@
+@import '../../styles/colors.scss';
+
+.mainContainer {
+  position: sticky;
+  height: 70px;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  padding: 8px 100px  8px 100px;
+  background-color: $color-primary;
+  border: 1px solid $color-borders;
+}

@@ -5,4 +5,4 @@ export interface IPost {
   body: string;
 }
 
-export type iconName = 'Delete' | 'Edit'
+export type iconName = 'Delete' | 'Edit' | 'New post'
