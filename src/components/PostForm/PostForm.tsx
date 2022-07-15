@@ -41,7 +41,7 @@ const PostForm = ({ setIsModalVisible, postToEdit, isEditingPost }: IPostFormPro
   };
 
   return (
-    <form className={styles.mainContainer}>
+    <div className={styles.mainContainer}>
       <label>Post Title</label>
       <input
         type="text"
@@ -60,7 +60,7 @@ const PostForm = ({ setIsModalVisible, postToEdit, isEditingPost }: IPostFormPro
         text='Create post'
         onClick={handleCreatePostClick}
       />
-    </form>
+    </div>
   );
 };
 
