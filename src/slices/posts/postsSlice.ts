@@ -31,7 +31,9 @@ const postsSlice = createSlice({
       state.posts.unshift({
         ...action.payload,
         id: state.posts.length > 0 ? state.posts[state.posts.length - 1].id + 1 : 1,
-        userId: 1 // TODO decide if we should do something better than this
+        userId: 1
+        // NOTA: como no tenemos un sistema de login, estoy creando los nuevos
+        //posts con userId = 1 para que salgan al principio de la app
       });
     },
     postEdited(state, action) {
@@ -40,7 +42,6 @@ const postsSlice = createSlice({
       if (existingPost) {
         existingPost.title = title;
         existingPost.body = body;
-        // TODO decide what to do with user ids here
       }
     },
     postDeleted(state, action) {

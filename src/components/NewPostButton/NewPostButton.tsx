@@ -11,20 +11,13 @@ const NewPostButton = () => {
 
   const [isNewPostModalVisible, setIsNewPostModalVisible] = useState<boolean>(false);
 
-  // TODO try to move this logic into the modal component so we dont reuse it so much
-  const closeModal = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    if (event.currentTarget === event.target) {
-      setIsNewPostModalVisible(false);
-    }
-  };
-
   const handleNewPostClick = () => {
     setIsNewPostModalVisible(true);
   };
 
   return (
     <>
-      <Modal isVisible={isNewPostModalVisible} handleClose={closeModal}>
+      <Modal isVisible={isNewPostModalVisible} setIsModalVisible={setIsNewPostModalVisible}>
         <PostForm setIsModalVisible={setIsNewPostModalVisible}/>
       </Modal>
       <Button

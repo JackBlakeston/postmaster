@@ -4,7 +4,7 @@ import styles from './Button.module.scss';
 
 interface IButtonProps {
   text: string;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>; // TODO remove optional prop
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
   children?: JSX.Element;
   isDisabled?: boolean;
 }

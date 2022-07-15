@@ -7,9 +7,9 @@ import Button from '../Button/Button';
 import styles from './PostForm.module.scss';
 
 interface IPostFormProps {
-  setIsModalVisible: React.Dispatch<React.SetStateAction<boolean>>;
   postToEdit?: IPost;
   isEditingPost?: boolean;
+  setIsModalVisible: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const PostForm = ({ setIsModalVisible, postToEdit, isEditingPost }: IPostFormProps) => {
@@ -37,7 +37,6 @@ const PostForm = ({ setIsModalVisible, postToEdit, isEditingPost }: IPostFormPro
       }
       setIsModalVisible(false);
     }
-    // TODO a popup or something for when boxes are empty
   };
 
   const handleDiscardClick = () => {

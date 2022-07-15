@@ -27,12 +27,6 @@ const PostCardList = () => {
     setSelectedPost(post);
   };
 
-  const closeModal = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    if (event.currentTarget === event.target) {
-      setIsEditModalVisible(false);
-    }
-  };
-
   let content;
 
   if (postStatus === FetchStatus.LOADING) {
@@ -53,7 +47,7 @@ const PostCardList = () => {
 
   return (
     <>
-      <Modal isVisible={isEditModalVisible} handleClose={closeModal}>
+      <Modal isVisible={isEditModalVisible} setIsModalVisible={setIsEditModalVisible}>
         <PostForm
           setIsModalVisible={setIsEditModalVisible}
           postToEdit={selectedPost}
