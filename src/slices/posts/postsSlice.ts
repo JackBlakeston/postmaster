@@ -29,10 +29,14 @@ const postsSlice = createSlice({
         existingPost.body = body;
         // TODO decide what to do with user ids here
       }
+    },
+    postDeleted(state, action) {
+      const id = action.payload;
+      state.splice(state.findIndex((post) => post.id === id), 1);
     }
   }
 })
 
-export const { postAdded, postEdited } = postsSlice.actions
+export const { postAdded, postEdited, postDeleted } = postsSlice.actions
 
 export default postsSlice.reducer

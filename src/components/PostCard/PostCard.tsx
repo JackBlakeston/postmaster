@@ -2,6 +2,8 @@ import { IPost } from "../../types";
 import { capitalize } from "../../utils";
 import styles from './PostCard.module.scss';
 import Dropdown from "../Dropdown/Dropdown";
+import { useAppDispatch } from "../../redux/hooks";
+import { postDeleted } from "../../slices/posts/postsSlice";
 
 interface IPostCardProps {
   post: IPost;
@@ -10,8 +12,10 @@ interface IPostCardProps {
 
 const PostCard = ({ post, handleEditClick }: IPostCardProps) => {
 
+  const dispatch = useAppDispatch();
+
   const handleDeletePostClick = () => {
-    console.log('Delete post ', post.id)
+    dispatch(postDeleted(post.id));
   }
 
   const handleEditPostClick = () => {

@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useSelector } from 'react-redux'
 
 import styles from './PostCardList.module.scss';
 import PostCard from '../PostCard/PostCard';
@@ -7,10 +6,11 @@ import Modal from '../Modal/Modal';
 import { RootState } from '../../redux/store';
 import PostForm from '../PostForm/PostForm';
 import { IPost } from '../../types';
+import { useAppSelector } from '../../redux/hooks';
 
 const PostCardList = () => {
 
-  const posts = useSelector((state: RootState) => state.posts);
+  const posts = useAppSelector((state: RootState) => state.posts);
   const [isEditModalVisible, setIsEditModalVisible] = useState<boolean>(false);
   const [selectedPost, setSelectedPost] = useState<IPost>();
 

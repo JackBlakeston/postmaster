@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useDispatch } from 'react-redux';
+import { useAppDispatch } from "../../redux/hooks";
 
 import { postAdded, postEdited } from '../../slices/posts/postsSlice';
 import { IPost } from "../../types";
@@ -17,7 +17,7 @@ const PostForm = ({ setIsModalVisible, postToEdit, isEditingPost }: IPostFormPro
   const [title, setTitle] = useState<string>(postToEdit ? postToEdit.title : '');
   const [body, setBody] = useState<string>(postToEdit ? postToEdit.body : '');
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const onTitleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setTitle(event.target.value);
