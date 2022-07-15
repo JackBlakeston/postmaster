@@ -40,25 +40,36 @@ const PostForm = ({ setIsModalVisible, postToEdit, isEditingPost }: IPostFormPro
     // TODO a popup or something for when boxes are empty
   };
 
+  const handleDiscardClick = () => {
+    setIsModalVisible(false);
+  };
+
   return (
     <div className={styles.mainContainer}>
-      <label>Post Title</label>
       <input
         placeholder='Post Title'
-        type="text"
+        type='text'
         value={title}
         onChange={onTitleChange}
+        className={styles.titleInput}
       />
-      <label>Post Body</label>
       <textarea
-        className={styles.bodyInput}
+        placeholder='Post body'
         value={body}
         onChange={onBodyChange}
+        className={styles.bodyInput}
       />
-      <Button
-        text='Create post'
-        onClick={handleCreatePostClick}
-      />
+      <div className={styles.buttonsContainer}>
+        <Button
+          text='Discard'
+          onClick={handleDiscardClick}
+        />
+        <Button
+          text='Create post'
+          onClick={handleCreatePostClick}
+          isDisabled={title === '' || body === ''}
+        />
+      </div>
     </div>
   );
 };

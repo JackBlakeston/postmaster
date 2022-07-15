@@ -14,12 +14,25 @@
   padding: 3px 10px;
   transition: 0.4s ease;
   font-size: 17px;
+
   &:hover {
     cursor: pointer;
     box-shadow: inset 200px 0 0 0 adjust-hue($color-button-borders, 45deg);
     color: $color-primary;
+
     svg {
       fill: $color-primary;
     }
   }
-};
+}
+
+.disabled {
+  border-color: $color-button-disabled;
+  color: $color-button-disabled;
+
+  &:hover {
+    cursor: default;
+    box-shadow: none;
+    color: $color-button-disabled;
+  }
+}

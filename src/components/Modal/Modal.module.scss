@@ -17,6 +17,13 @@
   background-color: $color-primary;
   border: 1px solid $color-borders;
   border-radius: 4px;
-  padding: 18px;
   color: $color-text-primary;
+}
+
+@media (max-width: 767px) {
+  .modalBox {
+    width: 100%;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
 }

@@ -3,14 +3,43 @@
 .mainContainer {
   display: flex;
   flex-direction: column;
-  width: 400px;
-  height: 300px;
+  width: 650px;
+  height: 500px;
+  padding: 30px 20px;
+}
+
+.titleInput, .bodyInput {
+  background-color: $color-input-background;
+  border: 1px solid $color-borders;
+  color: $color-text-primary;
+  font-size: 20px;
+  border-radius: 4px;
+
+  &:focus {
+    outline: none !important;
+    border: 1.5px solid $color-borders-highlight;
+  }
 }
 
 .titleInput {
-
+  height: 45px;
+  margin-bottom: 40px;
 }
 
 .bodyInput {
   resize: none;
+  height: 100%;
+  margin-bottom: 40px;
+}
+
+.buttonsContainer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+@media (max-width: 767px) {
+  .mainContainer {
+    width: auto;
+  }
 }
