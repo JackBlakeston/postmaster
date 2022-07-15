@@ -10,3 +10,12 @@ export enum IconName {
   EDIT = 'edit',
   NEW = 'newPost'
 }
+
+export enum FetchStatus {
+  IDLE = 'idle',
+  LOADING = 'loading',
+  SUCCEEDED = 'succeeded',
+  FAILED = 'failed'
+}
+
+export type TError = string | undefined;

@@ -3,20 +3,28 @@ import { useState } from 'react';
 import styles from './PostCardList.module.scss';
 import PostCard from '../PostCard/PostCard';
 import Modal from '../Modal/Modal';
-import { RootState } from '../../redux/store';
 import PostForm from '../PostForm/PostForm';
-import { IPost } from '../../types';
-import { useAppSelector } from '../../redux/hooks';
+import { FetchStatus, IPost } from '../../types';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { fetchPosts, selectAllPosts, selectError, selectStatus } from '../../slices/posts/postsSlice';
 
 const PostCardList = () => {
 
-  const posts = useAppSelector((state: RootState) => state.posts);
+  const dispatch = useAppDispatch();
+  const posts = useAppSelector(selectAllPosts);
+  const postStatus = useAppSelector(selectStatus);
+  const error = useAppSelector(selectError);
+
   const [isEditModalVisible, setIsEditModalVisible] = useState<boolean>(false);
   const [selectedPost, setSelectedPost] = useState<IPost>();
 
+  if (postStatus === FetchStatus.IDLE) {
+    dispatch(fetchPosts());
+  }
+
   const openEditPostModal = (post: IPost) => {
     setIsEditModalVisible(true);
-    setSelectedPost(post)
+    setSelectedPost(post);
   }
 
   const closeModal = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
@@ -24,7 +32,26 @@ const PostCardList = () => {
       setIsEditModalVisible(false);
     }
   }
-  // TODO add logic for loading
+
+  let content;
+
+  if (postStatus === FetchStatus.LOADING) {
+    content = <p>Content is loading</p>;
+  } else if (postStatus === FetchStatus.FAILED) {
+    content = <p>There was an error while retrieving posts: {error}</p>
+  } else if (postStatus === FetchStatus.SUCCEEDED) {
+    // console.log(posts);
+    content = posts.map(post => {
+      return (
+        <PostCard
+          handleEditClick={openEditPostModal}
+          key={post.id}
+          post={post}
+        />
+      )
+    });
+  }
+
   return (
     <>
       <Modal isVisible={isEditModalVisible} handleClose={closeModal}>
@@ -35,18 +62,7 @@ const PostCardList = () => {
         />
       </Modal>
       <div className={styles.mainContainer}>
-        {/* isFetching ?
-          <p>Content is loading</p>
-          : */
-          posts.map(post => {
-            return (
-              <PostCard
-                handleEditClick={openEditPostModal}
-                key={post.id}
-                post={post}
-              />
-            )
-          })}
+        {content}
       </div>
     </>
   );
