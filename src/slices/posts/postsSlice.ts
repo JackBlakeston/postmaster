@@ -20,10 +20,19 @@ const postsSlice = createSlice({
         id: state[state.length - 1].id + 1,
         userId: 1 // TODO decide if we should do something better than this
       })
+    },
+    postEdited(state, action) {
+      const {id, title, body} = action.payload;
+      const existingPost = state.find(post => post.id === id);
+      if (existingPost) {
+        existingPost.title = title;
+        existingPost.body = body;
+        // TODO decide what to do with user ids here
+      }
     }
   }
 })
 
-export const { postAdded } = postsSlice.actions
+export const { postAdded, postEdited } = postsSlice.actions
 
 export default postsSlice.reducer

@@ -5,7 +5,7 @@ import Dropdown from "../Dropdown/Dropdown";
 
 interface IPostCardProps {
   post: IPost;
-  handleEditClick: (postId: number) => void;
+  handleEditClick: (post: IPost) => void;
 }
 
 const PostCard = ({ post, handleEditClick }: IPostCardProps) => {
@@ -15,7 +15,7 @@ const PostCard = ({ post, handleEditClick }: IPostCardProps) => {
   }
 
   const handleEditPostClick = () => {
-    handleEditClick(post.id);
+    handleEditClick(post);
   }
 
   return (

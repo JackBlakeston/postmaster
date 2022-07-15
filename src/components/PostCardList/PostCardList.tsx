@@ -5,16 +5,18 @@ import styles from './PostCardList.module.scss';
 import PostCard from '../PostCard/PostCard';
 import Modal from '../Modal/Modal';
 import { RootState } from '../../redux/store';
+import PostForm from '../PostForm/PostForm';
+import { IPost } from '../../types';
 
 const PostCardList = () => {
 
   const posts = useSelector((state: RootState) => state.posts);
   const [isEditModalVisible, setIsEditModalVisible] = useState<boolean>(false);
-  const [selectedPost, setSelectedPost] = useState<number>(0);
+  const [selectedPost, setSelectedPost] = useState<IPost>();
 
-  const openEditPostModal = (postId: number) => {
+  const openEditPostModal = (post: IPost) => {
     setIsEditModalVisible(true);
-    setSelectedPost(postId)
+    setSelectedPost(post)
   }
 
   const closeModal = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
@@ -26,7 +28,11 @@ const PostCardList = () => {
   return (
     <>
       <Modal isVisible={isEditModalVisible} handleClose={closeModal}>
-        <h1>POST NO {selectedPost}</h1>
+        <PostForm
+          setIsModalVisible={setIsEditModalVisible}
+          postToEdit={selectedPost}
+          isEditingPost
+        />
       </Modal>
       <div className={styles.mainContainer}>
         {/* isFetching ?

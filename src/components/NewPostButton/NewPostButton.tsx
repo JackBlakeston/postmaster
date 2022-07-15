@@ -9,23 +9,23 @@ import styles from './NewPostButton.module.scss';
 
 const NewPostButton = () => {
 
-  const [isPostModalVisible, setIsPostModalVisible] = useState<boolean>(false);
+  const [isNewPostModalVisible, setIsNewPostModalVisible] = useState<boolean>(false);
 
   // TODO try to move this logic into the modal component so we dont reuse it so much
   const closeModal = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     if (event.currentTarget === event.target) {
-      setIsPostModalVisible(false);
+      setIsNewPostModalVisible(false);
     }
   }
 
   const handleNewPostClick = () => {
-    setIsPostModalVisible(true);
+    setIsNewPostModalVisible(true);
   }
 
   return (
     <>
-      <Modal isVisible={isPostModalVisible} handleClose={closeModal}>
-        <PostForm setIsPostModalVisible={setIsPostModalVisible}/>
+      <Modal isVisible={isNewPostModalVisible} handleClose={closeModal}>
+        <PostForm setIsModalVisible={setIsNewPostModalVisible}/>
       </Modal>
       <Button
         text={NEW_POST}

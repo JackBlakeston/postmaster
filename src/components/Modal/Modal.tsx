@@ -16,7 +16,7 @@ const Modal = ({ isVisible, children, handleClose }: IModalProps) => {
   if (!isVisible) return null;
 
   return (
-    <div className={styles.mainContainer} onClick={handleClose}>
+    <div className={styles.mainContainer} onMouseDown={handleClose}>
       <div className={styles.modalBox}>
         {children}
       </div>
