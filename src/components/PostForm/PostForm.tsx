@@ -44,15 +44,14 @@ const PostForm = ({ setIsModalVisible, postToEdit, isEditingPost }: IPostFormPro
     <div className={styles.mainContainer}>
       <label>Post Title</label>
       <input
+        placeholder='Post Title'
         type="text"
-        name="postTitle"
         value={title}
         onChange={onTitleChange}
       />
       <label>Post Body</label>
       <textarea
         className={styles.bodyInput}
-        name="postBody"
         value={body}
         onChange={onBodyChange}
       />
