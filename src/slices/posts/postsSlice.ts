@@ -13,7 +13,17 @@ const initialState: IPost[] = [
 const postsSlice = createSlice({
   name: 'posts',
   initialState,
-  reducers: {}
+  reducers: {
+    postAdded(state, action) {
+      state.push({
+        ...action.payload,
+        id: state[state.length - 1].id + 1,
+        userId: 1 // TODO decide if we should do something better than this
+      })
+    }
+  }
 })
+
+export const { postAdded } = postsSlice.actions
 
 export default postsSlice.reducer

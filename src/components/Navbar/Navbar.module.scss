@@ -9,10 +9,5 @@
   padding: 8px 100px  8px 100px;
   background-color: $color-primary;
   border: 1px solid $color-borders;
-}
-
-.newPostIcon {
-  width: 25px;
-  height: 25px;
-  fill: $color-text-primary;
+  z-index: 5;
 }

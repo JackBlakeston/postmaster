@@ -1,12 +1,20 @@
 import { useState } from "react";
+import { useDispatch } from 'react-redux';
 
+import { postAdded } from '../../slices/posts/postsSlice';
 import Button from "../Button/Button";
 import styles from './PostForm.module.scss';
 
-const PostForm = () => {
+interface IPostFormProps {
+  setIsPostModalVisible: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
-  const [title, setTitle] = useState('');
-  const [body, setBody] = useState('');
+const PostForm = ({ setIsPostModalVisible }: IPostFormProps) => {
+
+  const [title, setTitle] = useState<string>('');
+  const [body, setBody] = useState<string>('');
+
+  const dispatch = useDispatch();
 
   const onTitleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setTitle(event.target.value);
@@ -14,6 +22,15 @@ const PostForm = () => {
 
   const onBodyChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setBody(event.target.value)
+  }
+
+  const handleCreatePostClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    if (title && body) {
+      dispatch(postAdded({ title, body }));
+      setIsPostModalVisible(false);
+    }
+    // TODO a popup or something for when boxes are empty
   }
 
   return (
@@ -34,6 +51,7 @@ const PostForm = () => {
       />
       <Button
         text='Create post'
+        onClick={handleCreatePostClick}
       />
     </form>
   );

@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 import styles from './PostCardList.module.scss';
 import PostCard from '../PostCard/PostCard';
 import Modal from '../Modal/Modal';
-import { RootState } from '../../app/store';
+import { RootState } from '../../redux/store';
 
 const PostCardList = () => {
 

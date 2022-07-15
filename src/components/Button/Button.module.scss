@@ -12,11 +12,11 @@
   min-width: 150px;
   min-height: 50px;
   padding: 3px 10px;
-  transition: 0.15s ease;
+  transition: 0.4s ease;
   font-size: 17px;
   &:hover {
     cursor: pointer;
-    box-shadow: inset 150px 0 0 0 adjust-hue($color-button-borders, 45deg);
+    box-shadow: inset 200px 0 0 0 adjust-hue($color-button-borders, 45deg);
     color: $color-primary;
     svg {
       fill: $color-primary;
