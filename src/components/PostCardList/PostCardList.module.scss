@@ -8,3 +8,9 @@
   bottom: 0;
   overflow: scroll;
 }
+
+@media (max-width: 480px) {
+  .mainContainer {
+    top: 152px;
+  }
+}
