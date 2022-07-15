@@ -15,7 +15,7 @@ const postsSlice = createSlice({
   initialState,
   reducers: {
     postAdded(state, action) {
-      state.push({
+      state.unshift({
         ...action.payload,
         id: state[state.length - 1].id + 1,
         userId: 1 // TODO decide if we should do something better than this
