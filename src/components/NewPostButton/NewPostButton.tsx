@@ -16,11 +16,11 @@ const NewPostButton = () => {
     if (event.currentTarget === event.target) {
       setIsNewPostModalVisible(false);
     }
-  }
+  };
 
   const handleNewPostClick = () => {
     setIsNewPostModalVisible(true);
-  }
+  };
 
   return (
     <>

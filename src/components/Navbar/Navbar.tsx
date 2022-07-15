@@ -4,9 +4,9 @@ import NewPostButton from '../NewPostButton/NewPostButton';
 const Navbar = () => {
 
   return (
-      <div className={styles.mainContainer}>
-        <NewPostButton/>
-      </div>
+    <div className={styles.mainContainer}>
+      <NewPostButton/>
+    </div>
   );
 };
 

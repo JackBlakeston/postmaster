@@ -1,12 +1,11 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from 'react';
 
-import { DELETE, EDIT } from "../../constants";
+import { DELETE, EDIT } from '../../constants';
 import { ReactComponent as EditIcon } from '../../assets/icons/edit.svg';
 import { ReactComponent as DeleteIcon } from '../../assets/icons/delete.svg';
-import DropdownItem from "../DropdownItem/DropdownItem";
+import DropdownItem from '../DropdownItem/DropdownItem';
 import styles from './Dropdown.module.scss';
 import { ReactComponent as DotsIcon } from '../../assets/icons/dots.svg';
-
 
 interface IDropdownProps {
   iconClassName: string;
@@ -35,7 +34,7 @@ const Dropdown = ({ iconClassName, handleEditPostClick, handleDeletePostClick }:
 
   const handleOpenDropdown = () => {
     setIsOpen(true);
-  }
+  };
 
   return (
     <>

@@ -8,7 +8,7 @@ interface ISliceState {
   posts: IPost[];
   status: FetchStatus;
   error: TError;
-};
+}
 
 const initialState: ISliceState = {
   posts: [],
@@ -32,7 +32,7 @@ const postsSlice = createSlice({
         ...action.payload,
         id: state.posts.length > 0 ? state.posts[state.posts.length - 1].id + 1 : 1,
         userId: 1 // TODO decide if we should do something better than this
-      })
+      });
     },
     postEdited(state, action) {
       const { id, title, body } = action.payload;
@@ -50,7 +50,7 @@ const postsSlice = createSlice({
   },
   extraReducers(builder) {
     builder
-      .addCase(fetchPosts.pending, (state, action) => {
+      .addCase(fetchPosts.pending, (state) => {
         state.status = FetchStatus.LOADING;
       })
       .addCase(fetchPosts.fulfilled, (state, action) => {

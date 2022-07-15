@@ -1,5 +1,5 @@
-import Navbar from "./components/Navbar/Navbar";
-import PostCardList from "./components/PostCardList/PostCardList";
+import Navbar from './components/Navbar/Navbar';
+import PostCardList from './components/PostCardList/PostCardList';
 
 const App = () => {
 
@@ -9,6 +9,6 @@ const App = () => {
       <PostCardList />
     </>
   );
-}
+};
 
 export default App;

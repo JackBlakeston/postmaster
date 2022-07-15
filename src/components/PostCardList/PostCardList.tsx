@@ -25,22 +25,21 @@ const PostCardList = () => {
   const openEditPostModal = (post: IPost) => {
     setIsEditModalVisible(true);
     setSelectedPost(post);
-  }
+  };
 
   const closeModal = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     if (event.currentTarget === event.target) {
       setIsEditModalVisible(false);
     }
-  }
+  };
 
   let content;
 
   if (postStatus === FetchStatus.LOADING) {
     content = <p>Content is loading</p>;
   } else if (postStatus === FetchStatus.FAILED) {
-    content = <p>There was an error while retrieving posts: {error}</p>
+    content = <p>There was an error while retrieving posts: {error}</p>;
   } else if (postStatus === FetchStatus.SUCCEEDED) {
-    // console.log(posts);
     content = posts.map(post => {
       return (
         <PostCard
@@ -48,7 +47,7 @@ const PostCardList = () => {
           key={post.id}
           post={post}
         />
-      )
+      );
     });
   }
 
