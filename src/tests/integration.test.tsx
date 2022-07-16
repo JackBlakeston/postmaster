@@ -10,9 +10,7 @@ import { store } from '../redux/store';
 import { IPost } from '../types';
 
 const mockPosts: IPost[] = [{ id: 1, title: 'Test title', body: 'Test body', userId: 1 }];
-
 const mock = new MockAdapter(axios);
-
 mock.onGet('https://jsonplaceholder.typicode.com/posts').reply(200, mockPosts);
 
 describe('Post view page', () => {

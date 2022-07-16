@@ -7,9 +7,7 @@ import { fetchPosts, postAdded, postDeleted, postEdited } from './postsSlice';
 
 const mockPost: IPost = { id: 1, title: 'Test Post!', body: 'Testing', userId: 1 };
 const mockPost2: IPost = { id: 1, title: 'Another test Post!', body: 'Testing some more', userId: 1 };
-
 const mock = new MockAdapter(axios);
-
 mock.onGet('https://jsonplaceholder.typicode.com/posts').reply(200, [mockPost]);
 
 describe('Posts slice', () => {
