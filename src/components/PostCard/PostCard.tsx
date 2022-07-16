@@ -1,5 +1,5 @@
 import { IPost } from '../../types';
-import { capitalize } from '../../utils';
+import { capitalize } from '../../utils/utils';
 import styles from './PostCard.module.scss';
 import Dropdown from '../Dropdown/Dropdown';
 import { useAppDispatch } from '../../redux/hooks';
