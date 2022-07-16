@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { CREATE_POST, DISCARD, EMPTY_STRING, POST_BODY, POST_TITLE, TEXT } from '../../constants';
 import { useAppDispatch } from '../../redux/hooks';
 
 import { postAdded, postEdited } from '../../slices/posts/postsSlice';
@@ -14,8 +15,8 @@ interface IPostFormProps {
 
 const PostForm = ({ setIsModalVisible, postToEdit, isEditingPost }: IPostFormProps) => {
 
-  const [title, setTitle] = useState<string>(postToEdit ? postToEdit.title : '');
-  const [body, setBody] = useState<string>(postToEdit ? postToEdit.body : '');
+  const [title, setTitle] = useState<string>(postToEdit ? postToEdit.title : EMPTY_STRING);
+  const [body, setBody] = useState<string>(postToEdit ? postToEdit.body : EMPTY_STRING);
 
   const dispatch = useAppDispatch();
 
@@ -46,27 +47,27 @@ const PostForm = ({ setIsModalVisible, postToEdit, isEditingPost }: IPostFormPro
   return (
     <div className={styles.mainContainer}>
       <input
-        placeholder='Post Title'
-        type='text'
+        placeholder={POST_TITLE}
+        type={TEXT}
         value={title}
         onChange={onTitleChange}
         className={styles.titleInput}
       />
       <textarea
-        placeholder='Post body'
+        placeholder={POST_BODY}
         value={body}
         onChange={onBodyChange}
         className={styles.bodyInput}
       />
       <div className={styles.buttonsContainer}>
         <Button
-          text='Discard'
+          text={DISCARD}
           onClick={handleDiscardClick}
         />
         <Button
-          text='Create post'
+          text={CREATE_POST}
           onClick={handleCreatePostClick}
-          isDisabled={title === '' || body === ''}
+          isDisabled={title === EMPTY_STRING || body === EMPTY_STRING }
         />
       </div>
     </div>

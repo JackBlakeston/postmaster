@@ -1,3 +1,9 @@
 export const DELETE = 'Delete';
 export const EDIT = 'Edit';
 export const NEW_POST = 'New post';
+export const POST_TITLE = 'Post Title';
+export const POST_BODY = 'Post body';
+export const DISCARD = 'Discard';
+export const CREATE_POST = 'Create post';
+export const TEXT = 'text';
+export const EMPTY_STRING = '';
