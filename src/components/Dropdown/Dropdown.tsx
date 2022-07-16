@@ -43,10 +43,10 @@ const Dropdown = ({ iconClassName, handleEditPostClick, handleDeletePostClick }:
       </div>
       {isOpen &&
         <div ref={dropdownRef} className={styles.mainContainer}>
-          <DropdownItem label={EDIT} handleClick={handleEditPostClick}>
+          <DropdownItem text={EDIT} handleClick={handleEditPostClick}>
             <EditIcon className={styles.icon} />
           </DropdownItem>
-          <DropdownItem label={DELETE} handleClick={handleDeletePostClick}>
+          <DropdownItem text={DELETE} handleClick={handleDeletePostClick}>
             <DeleteIcon className={styles.icon} />
           </DropdownItem>
         </div>

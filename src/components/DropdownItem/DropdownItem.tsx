@@ -1,17 +1,17 @@
 import styles from './DropdownItem.module.scss';
 
 interface IDropdownItemProps {
-  label: string;
+  text: string;
   children: JSX.Element;
   handleClick: React.MouseEventHandler<HTMLDivElement>;
 }
 
-const DropdownItem = ({ label, children, handleClick }: IDropdownItemProps) => {
+const DropdownItem = ({ text, children, handleClick }: IDropdownItemProps) => {
 
   return (
     <div className={styles.mainContainer} onClick={handleClick}>
       {children}
-      <span>{label}</span>
+      <span>{text}</span>
     </div>
   );
 };
