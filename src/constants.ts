@@ -7,3 +7,4 @@ export const DISCARD = 'Discard';
 export const CREATE_POST = 'Create post';
 export const TEXT = 'text';
 export const EMPTY_STRING = '';
+export const LOADER_COLOR = '#e1e1e1';

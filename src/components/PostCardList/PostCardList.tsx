@@ -7,6 +7,8 @@ import PostForm from '../PostForm/PostForm';
 import { FetchStatus, IPost } from '../../types';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { fetchPosts, selectAllPosts, selectError, selectStatus } from '../../slices/posts/postsSlice';
+import { ClipLoader } from 'react-spinners';
+import { LOADER_COLOR } from '../../constants';
 
 const PostCardList = () => {
 
@@ -29,9 +31,7 @@ const PostCardList = () => {
 
   let content;
 
-  if (postStatus === FetchStatus.LOADING) {
-    content = <p>Content is loading</p>;
-  } else if (postStatus === FetchStatus.FAILED) {
+  if (postStatus === FetchStatus.FAILED) {
     content = <p>There was an error while retrieving posts: {error}</p>;
   } else if (postStatus === FetchStatus.SUCCEEDED) {
     content = posts.map(post => {
@@ -47,6 +47,9 @@ const PostCardList = () => {
 
   return (
     <>
+      <div className={styles.loaderContainer}>
+        <ClipLoader color={LOADER_COLOR} loading={postStatus === FetchStatus.LOADING} size={150} />
+      </div>
       <Modal isVisible={isEditModalVisible} setIsModalVisible={setIsEditModalVisible}>
         <PostForm
           setIsModalVisible={setIsEditModalVisible}
