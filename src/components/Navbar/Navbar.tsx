@@ -6,9 +6,7 @@ const Navbar = () => {
 
   return (
     <div className={styles.mainContainer}>
-      {/* <div className={styles.logoContainer}> */}
       <img className={styles.logo} src={Logo}/>
-      {/* </div> */}
       <NewPostButton/>
     </div>
   );

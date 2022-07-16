@@ -2,15 +2,15 @@ import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 
 import { store } from '../../redux/store';
-import { FetchStatus } from '../../types';
+import { FetchStatus, IPost } from '../../types';
 import { fetchPosts, postAdded, postDeleted, postEdited } from './postsSlice';
 
-const mockPost = { id: 1, title: 'Test Post!', body: 'Testing', userId: 1 };
-const mockPost2 = { id: 1, title: 'Another test Post!', body: 'Testing some more', userId: 1 };
+const mockPost: IPost = { id: 1, title: 'Test Post!', body: 'Testing', userId: 1 };
+const mockPost2: IPost = { id: 1, title: 'Another test Post!', body: 'Testing some more', userId: 1 };
 
 const mock = new MockAdapter(axios);
 
-mock.onGet('https://jsonplaceholder.typicode.com/posts').reply(200, mockPost);
+mock.onGet('https://jsonplaceholder.typicode.com/posts').reply(200, [mockPost]);
 
 describe('Posts slice', () => {
 
