@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { CREATE_POST, DISCARD, EMPTY_STRING, POST_BODY, POST_TITLE, TEXT } from '../../constants';
+import { CREATE_POST, DISCARD, EDIT_POST, EMPTY_STRING, POST_BODY, POST_TITLE, TEXT } from '../../constants';
 import { useAppDispatch } from '../../redux/hooks';
 
 import { postAdded, postEdited } from '../../slices/posts/postsSlice';
@@ -65,7 +65,7 @@ const PostForm = ({ setIsModalVisible, postToEdit, isEditingPost }: IPostFormPro
           onClick={handleDiscardClick}
         />
         <Button
-          text={CREATE_POST}
+          text={isEditingPost ? EDIT_POST : CREATE_POST}
           onClick={handleCreatePostClick}
           isDisabled={title === EMPTY_STRING || body === EMPTY_STRING }
         />

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
-import { DELETE, EDIT } from '../../constants';
+import { DELETE, EDIT, MODIFY_POST } from '../../constants';
 import { ReactComponent as EditIcon } from '../../assets/icons/edit.svg';
 import { ReactComponent as DeleteIcon } from '../../assets/icons/delete.svg';
 import DropdownItem from '../DropdownItem/DropdownItem';
@@ -8,7 +8,7 @@ import styles from './Dropdown.module.scss';
 import { ReactComponent as DotsIcon } from '../../assets/icons/dots.svg';
 
 interface IDropdownProps {
-  iconClassName: string;
+  iconClassName?: string;
   handleEditPostClick: React.MouseEventHandler<HTMLDivElement>;
   handleDeletePostClick: React.MouseEventHandler<HTMLDivElement>;
 }
@@ -39,7 +39,7 @@ const Dropdown = ({ iconClassName, handleEditPostClick, handleDeletePostClick }:
   return (
     <>
       <div className={`${styles.dotsContainer} ${iconClassName}`} onClick={handleOpenDropdown}>
-        <DotsIcon />
+        <DotsIcon aria-label={MODIFY_POST}/>
       </div>
       {isOpen &&
         <div ref={dropdownRef} className={styles.mainContainer}>
