@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import classNames from 'classnames';
 
 import { DELETE, EDIT, MODIFY_POST } from '../../constants';
 import { ReactComponent as EditIcon } from '../../assets/icons/edit.svg';
@@ -8,12 +9,12 @@ import styles from './Dropdown.module.scss';
 import { ReactComponent as DotsIcon } from '../../assets/icons/dots.svg';
 
 interface IDropdownProps {
-  iconClassName?: string;
+  iconClassName: string;
   handleEditPostClick: React.MouseEventHandler<HTMLDivElement>;
   handleDeletePostClick: React.MouseEventHandler<HTMLDivElement>;
 }
 
-const Dropdown = ({ iconClassName, handleEditPostClick, handleDeletePostClick }: IDropdownProps) => {
+const Dropdown = ({ handleEditPostClick, handleDeletePostClick, iconClassName }: IDropdownProps) => {
 
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
@@ -25,10 +26,8 @@ const Dropdown = ({ iconClassName, handleEditPostClick, handleDeletePostClick }:
   }, []);
 
   const handleClickOutside = (event: MouseEvent) => {
-    if (dropdownRef.current) {
-      if (!dropdownRef.current.contains(event.target as Node)) {
-        setIsOpen(false);
-      }
+    if (!dropdownRef?.current?.contains(event.target as Node)) {
+      setIsOpen(false);
     }
   };
 
@@ -36,9 +35,14 @@ const Dropdown = ({ iconClassName, handleEditPostClick, handleDeletePostClick }:
     setIsOpen(true);
   };
 
+  const dotsContainerClassNames = classNames({
+    [styles.dotsContainer]: true,
+    [iconClassName]: true,
+  });
+
   return (
     <>
-      <div className={`${styles.dotsContainer} ${iconClassName}`} onClick={handleOpenDropdown}>
+      <div className={dotsContainerClassNames} onClick={handleOpenDropdown}>
         <DotsIcon aria-label={MODIFY_POST}/>
       </div>
       {isOpen &&

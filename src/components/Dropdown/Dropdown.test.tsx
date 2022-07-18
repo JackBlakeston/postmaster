@@ -13,6 +13,7 @@ describe('Dropdown component', () => {
   beforeEach(() => {
     render(
       <Dropdown
+        iconClassName='test'
         handleDeletePostClick={mockFn1}
         handleEditPostClick={mockFn2}
       />
