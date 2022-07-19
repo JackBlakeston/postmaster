@@ -13,3 +13,4 @@ export const MODIFY_POST = 'modify post';
 export const LOGO = 'logo';
 export const FILTERS = 'Filters';
 export const SORT = 'Sort';
+export const CHECKBOX = 'checkbox';
