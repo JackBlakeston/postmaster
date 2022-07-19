@@ -22,17 +22,3 @@
   color: $color-text-primary;
   padding: 20px 30px;
 }
-
-.userListContainer {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 200px);
-  gap: 10px;
-  overflow: scroll;
-}
-
-.userCheckboxContainer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 15px;
-}

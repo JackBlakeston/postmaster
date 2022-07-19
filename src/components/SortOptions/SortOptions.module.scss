@@ -1,0 +1,28 @@
+@import '../../styles/colors.scss';
+
+.sortOptionsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 0 20px;
+}
+
+.sortTypeOption {
+  cursor: pointer;
+  width: fit-content;
+  padding: 8px 20px;
+  border-radius: 20px;
+
+  &:hover {
+    background-color: $color-element-hover;
+  }
+}
+
+.activeOption {
+  background-color: $color-selected-option;
+  color: $color-primary;
+
+  &:hover {
+    background-color: $color-selected-option;
+  }
+}

@@ -2,15 +2,9 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 import { RootState } from '../../redux/store';
-import { FetchStatus, IPost, TError } from '../../types';
+import { FetchStatus, IPostsState } from '../../types';
 
-interface IPostsSliceState {
-  posts: IPost[];
-  status: FetchStatus;
-  error: TError;
-}
-
-const initialState: IPostsSliceState = {
+const initialState: IPostsState = {
   posts: [],
   status: FetchStatus.IDLE,
   error: undefined

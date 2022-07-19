@@ -10,6 +10,7 @@ import { fetchPosts, selectAllPosts, selectError, selectStatus } from '../../sli
 import { ClipLoader } from 'react-spinners';
 import { LOADER_COLOR } from '../../constants';
 import { selectAllFilters } from '../../slices/filters/filtersSlice';
+import { filterAndSortPosts } from './utils';
 
 const PostCardList = () => {
 
@@ -24,17 +25,9 @@ const PostCardList = () => {
   const [filteredPosts, setFilteredPosts] = useState(posts);
 
   useEffect(() => {
-    const filtered = posts.filter(post => {
-      const titleMatch = post.title.includes(filters.search);
-      let userMatch = true;
-      if (filters.users.length > 0) {
-        userMatch = filters.users.includes(post.userId);
-      }
-      return titleMatch && userMatch;
-    });
+    const filtered = filterAndSortPosts(posts, filters);
     setFilteredPosts(filtered);
   }, [filters, posts]);
-
 
   if (postStatus === FetchStatus.IDLE) {
     dispatch(fetchPosts());

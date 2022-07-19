@@ -1,15 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { EMPTY_STRING } from '../../constants';
 import { RootState } from '../../redux/store';
+import { IFilters, SortOrder, SortType } from '../../types';
 
-interface IFiltersSliceState {
-  search: string;
-  users: number[];
-}
-
-const initialState: IFiltersSliceState = {
+const initialState: IFilters = {
   search: EMPTY_STRING,
-  users: []
+  users: [],
+  sortType: SortType.TITLE,
+  sortOrder: SortOrder.ASCENDING
 };
 
 const filtersSlice = createSlice({
@@ -25,11 +23,23 @@ const filtersSlice = createSlice({
     userFilterRemoved (state, action) {
       const id = action.payload;
       state.users.splice(state.users.findIndex(userId => userId === id), 1);
+    },
+    sortTypeOptionSelected (state, action) {
+      state.sortType = action.payload;
+    },
+    sortOrderOptionSelected (state, action) {
+      state.sortOrder = action.payload;
     }
   }
 });
 
-export const { searchModified, userFilterAdded, userFilterRemoved } = filtersSlice.actions;
+export const {
+  searchModified,
+  userFilterAdded,
+  userFilterRemoved,
+  sortTypeOptionSelected,
+  sortOrderOptionSelected
+} = filtersSlice.actions;
 
 export default filtersSlice.reducer;
 

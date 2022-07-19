@@ -50,10 +50,5 @@ export const defaultUsers: IUser[] = [
     userId: 10,
     username: 'Andy Bernard',
     password: 'user10'
-  },
-  {
-    userId: 11,
-    username: 'Admin',
-    password: 'admin'
   }
 ];

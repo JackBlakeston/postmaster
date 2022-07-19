@@ -1,0 +1,13 @@
+.mainContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 200px);
+  gap: 10px;
+  overflow: scroll;
+}
+
+.userCheckboxContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
