@@ -38,7 +38,7 @@ export const FilterOptions = () => {
 
   return (
     <>
-      <h2>Filter by user</h2>
+      <h2 className={styles.sectionHeader}>Filter by user</h2>
       <div className={styles.mainContainer}>
         {userCheckboxList}
       </div>

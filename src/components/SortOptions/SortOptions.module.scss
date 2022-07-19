@@ -1,4 +1,9 @@
 @import '../../styles/colors.scss';
+@import '../../styles/mixins.scss';
+
+.sectionHeader {
+  @include filter-section-header();
+}
 
 .sortOptionsContainer {
   display: flex;

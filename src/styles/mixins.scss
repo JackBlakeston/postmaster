@@ -1,0 +1,15 @@
+@import './colors.scss';
+
+@mixin text-input {
+  background-color: $color-input-background;
+  color: $color-text-primary;
+  border: 1.5px solid $color-borders;
+  border-radius: 4px;
+}
+
+@mixin filter-section-header {
+  margin: 20px 0 30px;
+  padding: 5px 0;
+  border-bottom: 1px solid $color-borders;
+  margin-right: 100px;
+}

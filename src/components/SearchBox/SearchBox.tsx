@@ -3,6 +3,7 @@ import { ChangeEvent } from 'react';
 import {  TEXT } from '../../constants';
 import { useAppDispatch } from '../../redux/hooks';
 import { searchModified } from '../../slices/filters/filtersSlice';
+import styles from './SearchBox.module.scss';
 
 const SearchBox = () => {
 
@@ -13,7 +14,12 @@ const SearchBox = () => {
   };
 
   return (
-    <input type={TEXT} placeholder='Search posts by title' onChange={handleInputChange}/>
+    <input
+      type={TEXT}
+      placeholder='Search posts by title'
+      onChange={handleInputChange}
+      className={styles.input}
+    />
   );
 };
 

@@ -41,7 +41,7 @@ const SortOptions = () => {
 
   return (
     <>
-      <h2>Sort by</h2>
+      <h2 className={styles.sectionHeader}>Sort by</h2>
       <div className={styles.sortOptionsContainer}>
         <span
           id={SortType.TITLE}
@@ -58,7 +58,7 @@ const SortOptions = () => {
             User (alphabetical)
         </span>
       </div>
-      <h2>Sort order</h2>
+      <h2 className={styles.sectionHeader}>Sort order</h2>
       <div className={styles.sortOptionsContainer}>
         <span
           id={SortOrder.ASCENDING}
