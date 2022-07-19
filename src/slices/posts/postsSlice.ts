@@ -4,13 +4,13 @@ import axios from 'axios';
 import { RootState } from '../../redux/store';
 import { FetchStatus, IPost, TError } from '../../types';
 
-interface ISliceState {
+interface IPostsSliceState {
   posts: IPost[];
   status: FetchStatus;
   error: TError;
 }
 
-const initialState: ISliceState = {
+const initialState: IPostsSliceState = {
   posts: [],
   status: FetchStatus.IDLE,
   error: undefined

@@ -4,13 +4,15 @@
   position: relative;
   background-color: $color-primary;
   color: $color-text-primary;
-  min-height: 260px;
+  height: 260px;
   padding: 13px;
   border: 1px solid $color-borders;
   border-radius: 8px;
+  transition: 0.15s ease;
 
   &:hover {
     border-color: $color-borders-highlight;
+    transform: scale(1.02);
 
     .dropdownIcon {
       display: flex;
