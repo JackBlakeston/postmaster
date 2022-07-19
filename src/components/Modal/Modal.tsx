@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { closeOnOverlayClick, useStopScroll } from '../../utils/utils';
 import styles from './Modal.module.scss';
 
 interface IModalProps {
@@ -9,20 +9,16 @@ interface IModalProps {
 
 const Modal = ({ isVisible, children, setIsModalVisible }: IModalProps) => {
 
-  useEffect(() => {
-    isVisible ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'unset';
-  }, [isVisible]);
+  useStopScroll(isVisible);
 
   if (!isVisible) return null;
 
-  const closeModal = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    if (event.currentTarget === event.target) {
-      setIsModalVisible(false);
-    }
+  const handleOverlayClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    closeOnOverlayClick(setIsModalVisible, event);
   };
 
   return (
-    <div className={styles.mainContainer} onMouseDown={closeModal}>
+    <div className={styles.mainContainer} onMouseDown={handleOverlayClick}>
       <div className={styles.modalBox}>
         {children}
       </div>

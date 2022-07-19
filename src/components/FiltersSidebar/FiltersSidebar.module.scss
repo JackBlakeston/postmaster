@@ -1,0 +1,38 @@
+@import '../../styles/colors.scss';
+
+.mainContainer {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  background-color: $color-overlay;
+}
+
+.sidebarContainer {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 30%;
+  height: 100vh;
+  z-index: 5;
+  border: 1px solid $color-borders;
+  background-color: $color-primary;
+  color: $color-text-primary;
+  padding: 20px 30px;
+}
+
+.userListContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 200px);
+  gap: 10px;
+  overflow: scroll;
+}
+
+.userCheckboxContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+}

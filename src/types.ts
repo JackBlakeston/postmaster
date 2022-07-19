@@ -5,6 +5,12 @@ export interface IPost {
   body: string;
 }
 
+export interface IUser {
+  userId: number;
+  username: string;
+  password: string;
+}
+
 export enum IconName {
   DELETE = 'delete',
   EDIT = 'edit',

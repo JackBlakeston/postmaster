@@ -11,3 +11,5 @@ export const EMPTY_STRING = '';
 export const LOADER_COLOR = '#e1e1e1';
 export const MODIFY_POST = 'modify post';
 export const LOGO = 'logo';
+export const FILTERS = 'Filters';
+export const SORT = 'Sort';

@@ -2,8 +2,9 @@ import { IPost } from '../../types';
 import { capitalize } from '../../utils/utils';
 import styles from './PostCard.module.scss';
 import Dropdown from '../Dropdown/Dropdown';
-import { useAppDispatch } from '../../redux/hooks';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { postDeleted } from '../../slices/posts/postsSlice';
+import { selectUserById } from '../../slices/users/usersSlice';
 
 interface IPostCardProps {
   post: IPost;
@@ -13,6 +14,7 @@ interface IPostCardProps {
 const PostCard = ({ post, handleEditClick }: IPostCardProps) => {
 
   const dispatch = useAppDispatch();
+  const user = useAppSelector((state) => selectUserById(state, post.userId));
 
   const handleDeletePostClick = () => {
     dispatch(postDeleted(post.id));
@@ -29,7 +31,7 @@ const PostCard = ({ post, handleEditClick }: IPostCardProps) => {
         handleEditPostClick={handleEditPostClick}
         handleDeletePostClick={handleDeletePostClick}
       />
-      <span className={styles.userIdText}>Posted by User {post.userId}</span>
+      <span className={styles.userIdText}>Posted by {user?.username}</span>
       <h2>{capitalize(post.title)}</h2>
       <span>{capitalize(post.body)}</span>
     </div>

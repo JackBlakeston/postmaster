@@ -5,9 +5,9 @@
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
   padding: 30px 30px;
-  position: fixed;
-  top: 80px;
-  bottom: 0;
+  // position: fixed; Without this the scrollbar goes above the navbar, which I don't like
+  // top: 120px;      but it also causes a lot of issues so I'm disabling for now
+  // bottom: 0;
   overflow: scroll;
 }
 

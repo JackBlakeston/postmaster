@@ -25,7 +25,12 @@ const PostCardList = () => {
 
   useEffect(() => {
     const filtered = posts.filter(post => {
-      return post.title.includes(filters.search);
+      const titleMatch = post.title.includes(filters.search);
+      let userMatch = true;
+      if (filters.users.length > 0) {
+        userMatch = filters.users.includes(post.userId);
+      }
+      return titleMatch && userMatch;
     });
     setFilteredPosts(filtered);
   }, [filters, posts]);
@@ -42,7 +47,12 @@ const PostCardList = () => {
 
   let content;
 
-  if (postStatus === FetchStatus.FAILED) {
+  if (postStatus === FetchStatus.LOADING) {
+    content =
+      <div className={styles.loaderContainer}>
+        <ClipLoader color={LOADER_COLOR} loading={postStatus === FetchStatus.LOADING} size={150} />
+      </div>;
+  } else if (postStatus === FetchStatus.FAILED) {
     content = <p>There was an error while retrieving posts: {error}</p>;
   } else if (postStatus === FetchStatus.SUCCEEDED) {
     content = filteredPosts.map(post => {
@@ -58,9 +68,6 @@ const PostCardList = () => {
 
   return (
     <>
-      <div className={styles.loaderContainer}>
-        <ClipLoader color={LOADER_COLOR} loading={postStatus === FetchStatus.LOADING} size={150} />
-      </div>
       <Modal isVisible={isEditModalVisible} setIsModalVisible={setIsEditModalVisible}>
         <PostForm
           setIsModalVisible={setIsEditModalVisible}

@@ -4,23 +4,32 @@ import { RootState } from '../../redux/store';
 
 interface IFiltersSliceState {
   search: string;
+  users: number[];
 }
 
 const initialState: IFiltersSliceState = {
-  search: EMPTY_STRING
+  search: EMPTY_STRING,
+  users: []
 };
 
 const filtersSlice = createSlice({
   name: 'filters',
   initialState,
   reducers: {
-    searchModified(state, action) {
+    searchModified (state, action) {
       state.search = action.payload;
+    },
+    userFilterAdded (state, action) {
+      state.users.push(action.payload);
+    },
+    userFilterRemoved (state, action) {
+      const id = action.payload;
+      state.users.splice(state.users.findIndex(userId => userId === id), 1);
     }
   }
 });
 
-export const { searchModified } = filtersSlice.actions;
+export const { searchModified, userFilterAdded, userFilterRemoved } = filtersSlice.actions;
 
 export default filtersSlice.reducer;
 
