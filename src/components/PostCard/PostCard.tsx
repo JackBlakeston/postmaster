@@ -41,6 +41,7 @@ const PostCard = ({ post, handleEditClick, handleCardClick }: IPostCardProps) =>
       <span className={styles.posterInfoText}>Posted by {user?.username}</span>
       <h2>{capitalize(post.title)}</h2>
       <span>{capitalize(post.body)}</span>
+      <div className={styles.effectOverlay}></div>
     </div>
   );
 };
