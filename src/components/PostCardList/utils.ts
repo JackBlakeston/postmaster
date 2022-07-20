@@ -31,6 +31,5 @@ const sortPosts = (posts: IPost[], filters: IFilters) => {
 export const filterAndSortPosts = (posts: IPost[], filters: IFilters) => {
   const filteredPosts = filterPosts(posts, filters);
   const sortedPosts = sortPosts(filteredPosts, filters);
-  console.log(sortedPosts);
   return sortedPosts;
 };

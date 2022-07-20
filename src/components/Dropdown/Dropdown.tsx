@@ -29,7 +29,7 @@ const Dropdown = ({ handleEditPostClick, handleDeletePostClick, iconClassName }:
 
   const handleOpenDropdown = (event: React.MouseEvent<HTMLDivElement>) => {
     event.stopPropagation();
-    setIsOpen(!isOpen); // TODO figure this out
+    setIsOpen(!isOpen);
   };
 
   const dotsIconContainerClassNames = classNames({
