@@ -15,5 +15,5 @@ export const FILTERS = 'Filters';
 export const SORT = 'Sort';
 export const CHECKBOX = 'checkbox';
 
-export const TITLE_CHAR_LIMIT = 60;
+export const TITLE_CHAR_LIMIT = 80;
 export const BODY_CHAR_LIMIT = 600;

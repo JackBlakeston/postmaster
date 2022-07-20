@@ -25,8 +25,13 @@
 @media (max-width: 767px) {
   .modalBox {
     width: 100%;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin: 0 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .modalBox {
+    margin: 0 10px;
   }
 }
 
