@@ -3,7 +3,7 @@ import { findUserById } from '../../utils/utils';
 
 const filterPosts = (posts: IPost[], filters: IFilters) => {
   return posts.filter(post => {
-    const titleMatch = post.title.includes(filters.search);
+    const titleMatch = post.title.toLowerCase().includes(filters.search.toLowerCase());
     let userMatch = true;
     if (filters.users.length > 0) {
       userMatch = filters.users.includes(post.userId);
