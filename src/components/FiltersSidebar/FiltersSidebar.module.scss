@@ -26,10 +26,7 @@
 }
 
 .closeButtonContainer {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  @include icon-button-container(35px);
+  @include icon-button-container-top-corner(35px, 15px);
 }
 
 .closeButton {

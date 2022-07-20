@@ -19,7 +19,7 @@
   flex-direction: column;
   width: 650px;
   height: 500px;
-  padding: 30px 20px;
+  padding: 30px 30px;
 }
 
 @mixin icon-button-container ($size) {
@@ -34,6 +34,13 @@
   &:hover {
     background-color: $color-element-hover;
   }
+}
+
+@mixin icon-button-container-top-corner ($size, $corner-distance) {
+  position: absolute;
+  top: $corner-distance;
+  right: $corner-distance;
+  @include icon-button-container($size);
 }
 
 @mixin icon ($size) {

@@ -31,8 +31,16 @@
   justify-content: space-evenly;
 }
 
-.icon {
+.buttonIcon {
   @include icon(25px);
+}
+
+.closeButtonContainer {
+  @include icon-button-container-top-corner(35px, 10px);
+}
+
+.closeButton {
+  @include icon(22px);
 }
 
 @media (max-width: 767px) {

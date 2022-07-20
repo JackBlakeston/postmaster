@@ -1,4 +1,5 @@
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { ReactComponent as CloseIcon } from '../../assets/icons/close.svg';
 import { ReactComponent as EditIcon } from '../../assets/icons/edit.svg';
 import { ReactComponent as DeleteIcon } from '../../assets/icons/delete.svg';
 import { selectUserById } from '../../slices/users/usersSlice';
@@ -29,6 +30,10 @@ const ExpandedPost = ({ post, handleEditClick, setIsModalVisible }: IExpandedPos
     setIsModalVisible(false);
   };
 
+  const handleCloseClick = () => {
+    setIsModalVisible(false);
+  };
+
   return (
     <div className={styles.mainContainer}>
       <h2>{capitalize(post.title)}</h2>
@@ -39,14 +44,17 @@ const ExpandedPost = ({ post, handleEditClick, setIsModalVisible }: IExpandedPos
           text={DELETE}
           onClick={handleDeletePostClick}
         >
-          <DeleteIcon className={styles.icon}/>
+          <DeleteIcon className={styles.buttonIcon}/>
         </Button>
         <Button
           text={EDIT}
           onClick={handleEditPostClick}
         >
-          <EditIcon className={styles.icon}/>
+          <EditIcon className={styles.buttonIcon}/>
         </Button>
+      </div>
+      <div className={styles.closeButtonContainer} onClick={handleCloseClick}>
+        <CloseIcon className={styles.closeButton}/>
       </div>
     </div>
   );
