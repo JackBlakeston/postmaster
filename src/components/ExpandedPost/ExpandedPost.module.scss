@@ -3,6 +3,7 @@
 .mainContainer {
   position: relative;
   @include modal-content();
+  word-break: break-all;
 
   h2 {
     margin: unset;
@@ -18,6 +19,7 @@
 .bodyText {
   font-size: 18px;
   max-height: 300px;
+  overflow: scroll;
 }
 
 .buttonsContainer {
@@ -31,4 +33,17 @@
 
 .icon {
   @include icon(25px);
+}
+
+@media (max-width: 767px) {
+  .mainContainer {
+    width: auto;
+    height: 600px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mainContainer {
+    height: 700px;
+  }
 }

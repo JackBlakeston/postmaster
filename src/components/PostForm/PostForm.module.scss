@@ -17,14 +17,17 @@
 
 .titleInput {
   height: 45px;
-  margin-bottom: 40px;
 }
 
 .bodyInput {
   resize: none;
   height: 100%;
-  margin-bottom: 40px;
   font-family: BlinkMacSystemFont;
+}
+
+.charCountText {
+  @include secondary-text();
+  margin: 3px 0 37px;
 }
 
 .buttonsContainer {
@@ -36,5 +39,12 @@
 @media (max-width: 767px) {
   .mainContainer {
     width: auto;
+    height: 600px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mainContainer {
+    height: 700px;
   }
 }

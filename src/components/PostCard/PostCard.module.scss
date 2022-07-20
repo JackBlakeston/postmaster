@@ -12,6 +12,7 @@
   transition: 0.15s ease;
   cursor: pointer;
   overflow: hidden;
+  word-break: break-all;
 
   &:hover {
     border-color: $color-borders-highlight;

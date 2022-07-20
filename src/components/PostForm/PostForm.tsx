@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { CREATE_POST, DISCARD, EDIT_POST, EMPTY_STRING, POST_BODY, POST_TITLE, TEXT } from '../../constants';
+import { BODY_CHAR_LIMIT, CREATE_POST, DISCARD, EDIT_POST, EMPTY_STRING, POST_BODY, POST_TITLE, TEXT, TITLE_CHAR_LIMIT } from '../../constants';
 import { useAppDispatch } from '../../redux/hooks';
 
 import { postAdded, postEdited } from '../../slices/posts/postsSlice';
@@ -47,18 +47,22 @@ const PostForm = ({ setIsModalVisible, postToEdit, isEditingPost }: IPostFormPro
   return (
     <div className={styles.mainContainer}>
       <input
+        maxLength={TITLE_CHAR_LIMIT}
         placeholder={POST_TITLE}
         type={TEXT}
         value={title}
         onChange={onTitleChange}
         className={styles.titleInput}
       />
+      <span className={styles.charCountText}>{title.length} / {TITLE_CHAR_LIMIT} characters</span>
       <textarea
+        maxLength={BODY_CHAR_LIMIT}
         placeholder={POST_BODY}
         value={body}
         onChange={onBodyChange}
         className={styles.bodyInput}
       />
+      <span className={styles.charCountText}>{body.length} / {BODY_CHAR_LIMIT} characters</span>
       <div className={styles.buttonsContainer}>
         <Button
           text={DISCARD}
