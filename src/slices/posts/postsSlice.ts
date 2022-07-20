@@ -10,10 +10,15 @@ const initialState: IPostsState = {
   error: undefined
 };
 
+let idCounter = 0;
+
 export const fetchPosts = createAsyncThunk(
   'posts/fetchPosts',
   async () => {
     const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
+    if (idCounter === 0) {
+      idCounter = response.data.length;
+    }
     return response.data;
   });
 
@@ -22,13 +27,13 @@ const postsSlice = createSlice({
   initialState,
   reducers: {
     postAdded(state, action) {
-      state.posts.unshift({
+      state.posts.push({
         ...action.payload,
-        id: state.posts.length > 0 ? state.posts[state.posts.length - 1].id + 1 : 1,
-        userId: 1
-        // NOTA: como no tenemos un sistema de login, estoy creando los nuevos
-        //posts con userId = 1 para que salgan al principio de la app
+        id: idCounter + 1,
+        userId: 11
+        // Los osts nuevos son publicados como Admin
       });
+      idCounter++;
     },
     postEdited(state, action) {
       const { id, title, body } = action.payload;

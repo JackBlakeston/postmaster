@@ -15,11 +15,11 @@ const filterPosts = (posts: IPost[], filters: IFilters) => {
 const sortPosts = (posts: IPost[], filters: IFilters) => {
   posts.sort((a, b) => {
     if (filters.sortType === SortType.TITLE) {
-      return a.title > b.title ? 1 : -1;
+      return a.title.toLowerCase() > b.title.toLowerCase() ? 1 : -1;
     } else {
       const userA = findUserById(a.userId)?.username as string;
       const userB = findUserById(b.userId)?.username as string;
-      return userA > userB ? 1 : -1;
+      return userA.toLowerCase() > userB.toLowerCase() ? 1 : -1;
     }
   });
   if (filters.sortOrder === SortOrder.DESCENDING) {
@@ -31,5 +31,6 @@ const sortPosts = (posts: IPost[], filters: IFilters) => {
 export const filterAndSortPosts = (posts: IPost[], filters: IFilters) => {
   const filteredPosts = filterPosts(posts, filters);
   const sortedPosts = sortPosts(filteredPosts, filters);
+  console.log(sortedPosts);
   return sortedPosts;
 };
