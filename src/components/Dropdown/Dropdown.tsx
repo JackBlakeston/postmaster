@@ -35,15 +35,15 @@ const Dropdown = ({ handleEditPostClick, handleDeletePostClick, iconClassName }:
     setIsOpen(true);
   };
 
-  const dotsContainerClassNames = classNames({
-    [styles.dotsContainer]: true,
+  const dotsIconContainerClassNames = classNames({
+    [styles.dotsIconContainer]: true,
     [iconClassName]: true,
   });
 
   return (
     <>
-      <div className={dotsContainerClassNames} onClick={handleOpenDropdown}>
-        <DotsIcon aria-label={MODIFY_POST}/>
+      <div className={dotsIconContainerClassNames} onClick={handleOpenDropdown}>
+        <DotsIcon aria-label={MODIFY_POST} className={styles.dotsIcon}/>
       </div>
       {isOpen &&
         <div ref={dropdownRef} className={styles.mainContainer}>

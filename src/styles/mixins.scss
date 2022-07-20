@@ -13,3 +13,23 @@
   border-bottom: 1px solid $color-borders;
   margin-right: 100px;
 }
+
+@mixin icon-button-container ($size) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: $size;
+  width: $size;
+  border-radius: 10px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $color-element-hover;
+  }
+}
+
+@mixin icon-button ($size) {
+  width: $size;
+  height: $size;
+  fill: $color-text-primary;
+}

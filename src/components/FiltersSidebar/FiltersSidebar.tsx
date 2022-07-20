@@ -1,4 +1,5 @@
 import { closeOnOverlayClick, useStopScroll } from '../../utils/utils';
+import { ReactComponent as CloseIcon } from '../../assets/icons/close.svg';
 import FilterOptions from '../FilterOptions/FilterOptions';
 import SortOptions from '../SortOptions/SortOptions';
 import styles from './FiltersSidebar.module.scss';
@@ -18,9 +19,16 @@ const FiltersSidebar = ({ isVisible, setIsVisible }: IFiltersSidebarProps) => {
     closeOnOverlayClick(setIsVisible, event);
   };
 
+  const handleCloseClick = () => {
+    setIsVisible(false);
+  };
+
   return (
     <div className={styles.mainContainer} onClick={handleOverlayClick}>
       <div className={styles.sidebarContainer}>
+        <div className={styles.closeButtonContainer} onClick={handleCloseClick}>
+          <CloseIcon className={styles.closeButton}/>
+        </div>
         <FilterOptions/>
         <SortOptions/>
       </div>

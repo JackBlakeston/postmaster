@@ -1,21 +1,10 @@
 @import '../../styles/colors.scss';
+@import '../../styles/mixins.scss';
 
 .mainContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 35px;
-  width: 35px;
-  border-radius: 10px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: $color-element-hover;
-  }
+  @include icon-button-container(35px);
 }
 
 .icon {
-  width: 20px;
-  height: 20px;
-  fill: $color-text-primary;
+  @include icon-button(22px);
 }

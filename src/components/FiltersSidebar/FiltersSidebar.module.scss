@@ -1,4 +1,5 @@
 @import '../../styles/colors.scss';
+@import '../../styles/mixins.scss';
 
 .mainContainer {
   position: fixed;
@@ -22,6 +23,17 @@
   color: $color-text-primary;
   padding: 40px 0 20px 30px;
   animation: slide-in 0.3s;
+}
+
+.closeButtonContainer {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  @include icon-button-container(35px);
+}
+
+.closeButton {
+  @include icon-button(22px);
 }
 
 @media (max-width: 530px) {

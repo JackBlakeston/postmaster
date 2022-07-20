@@ -1,4 +1,5 @@
 @import '../../styles/colors.scss';
+@import '../../styles/mixins.scss';
 
 .mainContainer {
   position: absolute;
@@ -15,25 +16,20 @@
   }
 }
 
+.dotsIconContainer {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  @include icon-button-container(30px);
+  display: none;
+}
+
+.dotsIcon {
+  @include icon-button(22px);
+}
+
 .icon {
   width: 20px;
   height: 20px;
   fill: $color-text-primary;
-}
-
-.dotsContainer {
-  display: none;
-  position: absolute;
-  justify-content: center;
-  align-items: center;
-  right: 10px;
-  top: 10px;
-  height: 30px;
-  width: 30px;
-  border-radius: 10px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: $color-element-hover;
-  }
 }
