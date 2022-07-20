@@ -3,7 +3,7 @@
 .mainContainer {
   position: relative;
   @include modal-content();
-  word-break: break-all;
+  word-break: break-word;
 
   h2 {
     margin: unset;
