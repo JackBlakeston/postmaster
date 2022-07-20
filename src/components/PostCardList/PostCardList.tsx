@@ -11,6 +11,7 @@ import { ClipLoader } from 'react-spinners';
 import { LOADER_COLOR } from '../../constants';
 import { selectAllFilters } from '../../slices/filters/filtersSlice';
 import { filterAndSortPosts } from './utils';
+import ExpandedPost from '../ExpandedPost/ExpandedPost';
 
 const PostCardList = () => {
 
@@ -20,9 +21,9 @@ const PostCardList = () => {
   const error = useAppSelector(selectError);
   const filters = useAppSelector(selectAllFilters);
 
-  const [isEditModalVisible, setIsEditModalVisible] = useState<boolean>(false);
-  const [selectedPost, setSelectedPost] = useState<IPost>();
-  const [filteredPosts, setFilteredPosts] = useState(posts);
+  const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
+  const [filteredPosts, setFilteredPosts] = useState<IPost[]>(posts);
+  const [modalContent, setModalContent] = useState<JSX.Element>(<></>);
 
   useEffect(() => {
     const filtered = filterAndSortPosts(posts, filters);
@@ -34,12 +35,28 @@ const PostCardList = () => {
   }
 
   const openEditPostModal = (post: IPost) => {
-    setIsEditModalVisible(true);
-    setSelectedPost(post);
+    setModalContent(
+      <PostForm
+        setIsModalVisible={setIsModalVisible}
+        postToEdit={post}
+        isEditingPost
+      />
+    );
+    setIsModalVisible(true);
+  };
+
+  const handleCardClick = (post: IPost) => {
+    setModalContent(
+      <ExpandedPost
+        post={post}
+        handleEditClick={openEditPostModal}
+        setIsModalVisible={setIsModalVisible}
+      />
+    );
+    setIsModalVisible(true);
   };
 
   let content;
-
   if (postStatus === FetchStatus.LOADING) {
     content =
       <div className={styles.loaderContainer}>
@@ -51,6 +68,7 @@ const PostCardList = () => {
     content = filteredPosts.map(post => {
       return (
         <PostCard
+          handleCardClick={handleCardClick}
           handleEditClick={openEditPostModal}
           key={post.id}
           post={post}
@@ -61,12 +79,8 @@ const PostCardList = () => {
 
   return (
     <>
-      <Modal isVisible={isEditModalVisible} setIsModalVisible={setIsEditModalVisible}>
-        <PostForm
-          setIsModalVisible={setIsEditModalVisible}
-          postToEdit={selectedPost}
-          isEditingPost
-        />
+      <Modal isVisible={isModalVisible} setIsModalVisible={setIsModalVisible}>
+        {modalContent}
       </Modal>
       <div className={styles.mainContainer}>
         {content}

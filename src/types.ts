@@ -30,6 +30,10 @@ export enum IconName {
   NEW = 'newPost'
 }
 
+export enum ModalType {
+
+}
+
 export enum FetchStatus {
   IDLE = 'idle',
   LOADING = 'loading',

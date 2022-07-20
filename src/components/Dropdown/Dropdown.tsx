@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import classNames from 'classnames';
 
 import { DELETE, EDIT, MODIFY_POST } from '../../constants';
@@ -7,6 +7,7 @@ import { ReactComponent as DeleteIcon } from '../../assets/icons/delete.svg';
 import DropdownItem from '../DropdownItem/DropdownItem';
 import styles from './Dropdown.module.scss';
 import { ReactComponent as DotsIcon } from '../../assets/icons/dots.svg';
+import { useEventListener } from './utils';
 
 interface IDropdownProps {
   iconClassName: string;
@@ -17,22 +18,18 @@ interface IDropdownProps {
 const Dropdown = ({ handleEditPostClick, handleDeletePostClick, iconClassName }: IDropdownProps) => {
 
   const [isOpen, setIsOpen] = useState<boolean>(false);
-
   const dropdownRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
 
   const handleClickOutside = (event: MouseEvent) => {
     if (!dropdownRef?.current?.contains(event.target as Node)) {
       setIsOpen(false);
     }
   };
+  useEventListener(handleClickOutside);
 
-  const handleOpenDropdown = () => {
-    setIsOpen(true);
+  const handleOpenDropdown = (event: React.MouseEvent<HTMLDivElement>) => {
+    event.stopPropagation();
+    setIsOpen(!isOpen); // TODO figure this out
   };
 
   const dotsIconContainerClassNames = classNames({

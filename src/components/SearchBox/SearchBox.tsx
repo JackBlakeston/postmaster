@@ -1,6 +1,6 @@
 import { ChangeEvent, useState } from 'react';
 
-import { TEXT } from '../../constants';
+import { EMPTY_STRING, TEXT } from '../../constants';
 import { useAppDispatch } from '../../redux/hooks';
 import { searchModified } from '../../slices/filters/filtersSlice';
 import styles from './SearchBox.module.scss';
@@ -9,7 +9,7 @@ import { useDebounce } from './utils';
 const SearchBox = () => {
 
   const dispatch = useAppDispatch();
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState<string>(EMPTY_STRING);
 
   useDebounce(() => {
     dispatch(searchModified(search));

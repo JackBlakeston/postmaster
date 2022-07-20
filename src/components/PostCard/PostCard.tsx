@@ -9,29 +9,36 @@ import { selectUserById } from '../../slices/users/usersSlice';
 interface IPostCardProps {
   post: IPost;
   handleEditClick: (post: IPost) => void;
+  handleCardClick: (post: IPost) => void;
 }
 
-const PostCard = ({ post, handleEditClick }: IPostCardProps) => {
+const PostCard = ({ post, handleEditClick, handleCardClick }: IPostCardProps) => {
 
   const dispatch = useAppDispatch();
   const user = useAppSelector((state) => selectUserById(state, post.userId));
 
-  const handleDeletePostClick = () => {
+  const handleDeletePostClick = (event: React.MouseEvent<HTMLDivElement>) => {
+    event.stopPropagation();
     dispatch(postDeleted(post.id));
   };
 
-  const handleEditPostClick = () => {
+  const handleEditPostClick = (event: React.MouseEvent<HTMLDivElement>) => {
+    event.stopPropagation();
     handleEditClick(post);
   };
 
+  const handleMainCardClick = () => {
+    handleCardClick(post);
+  };
+
   return (
-    <div className={styles.mainContainer}>
+    <div className={styles.mainContainer} onClick={handleMainCardClick}>
       <Dropdown
         iconClassName={styles.dropdownIcon}
         handleEditPostClick={handleEditPostClick}
         handleDeletePostClick={handleDeletePostClick}
       />
-      <span className={styles.userIdText}>Posted by {user?.username}</span>
+      <span className={styles.posterInfoText}>Posted by {user?.username}</span>
       <h2>{capitalize(post.title)}</h2>
       <span>{capitalize(post.body)}</span>
     </div>

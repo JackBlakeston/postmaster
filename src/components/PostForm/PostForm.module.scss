@@ -2,11 +2,7 @@
 @import '../../styles/mixins.scss';
 
 .mainContainer {
-  display: flex;
-  flex-direction: column;
-  width: 650px;
-  height: 500px;
-  padding: 30px 20px;
+  @include modal-content();
 }
 
 .titleInput, .bodyInput {

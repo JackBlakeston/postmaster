@@ -7,14 +7,15 @@ import PostCard from './PostCard';
 
 const mockPost: IPost = { id: 1, title: 'Test title', body: 'Test body', userId: 1 };
 
-const mockFn = jest.fn(() => {return;});
+const mockFn1 = jest.fn(() => {return;});
+const mockFn2 = jest.fn(() => {return;});
 
 describe('Post card component', () => {
 
   it('Should render content correctly', () => {
     render(
       <Provider store={store}>
-        <PostCard post={mockPost} handleEditClick={mockFn}/>
+        <PostCard post={mockPost} handleEditClick={mockFn1} handleCardClick={mockFn2}/>
       </Provider>
     );
 

@@ -33,7 +33,7 @@
 }
 
 .closeButton {
-  @include icon-button(22px);
+  @include icon(22px);
 }
 
 @media (max-width: 530px) {

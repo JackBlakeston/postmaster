@@ -1,0 +1,34 @@
+@import '../../styles/mixins.scss';
+
+.mainContainer {
+  position: relative;
+  @include modal-content();
+
+  h2 {
+    margin: unset;
+    font-size: 32px;
+  }
+}
+
+.posterInfoText {
+  @include secondary-text();
+  margin-bottom: 40px;
+}
+
+.bodyText {
+  font-size: 18px;
+  max-height: 300px;
+}
+
+.buttonsContainer {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  right: 30px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.icon {
+  @include icon(25px);
+}
