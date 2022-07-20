@@ -14,11 +14,27 @@
   position: absolute;
   right: 0;
   top: 0;
-  width: 30%;
+  width: 500px;
   height: 100vh;
   z-index: 5;
   border: 1px solid $color-borders;
   background-color: $color-primary;
   color: $color-text-primary;
-  padding: 40px 30px 20px;
+  padding: 40px 0 20px 30px;
+  animation: slide-in 0.3s;
+}
+
+@media (max-width: 530px) {
+  .sidebarContainer {
+    width: calc(100% - 30px);
+  }
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translate(500px);
+  }
+  100% {
+    transform: translate(0);
+  }
 }
