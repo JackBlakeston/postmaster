@@ -8,7 +8,6 @@
   color: $color-text-primary;
   height: 260px;
   padding: 13px;
-  // border: 1px solid $color-borders-gray;
   border-radius: 8px;
   box-shadow: $shadow-medium;
   transition: 0.15s ease;
@@ -17,7 +16,6 @@
   word-break: break-word;
 
   &:hover {
-    border-color: $color-borders-highlight;
     transform: scale(1.02);
     box-shadow: $shadow-strong;
 
@@ -42,5 +40,5 @@
   left: 0;
   right: 0;
   pointer-events: none;
-background: linear-gradient(180deg, $color-transparent 85%, $color-primary 100%);
+  background: linear-gradient(180deg, $color-transparent 85%, $color-primary 100%);
 }

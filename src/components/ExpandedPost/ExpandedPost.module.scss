@@ -40,7 +40,7 @@
 }
 
 .closeButton {
-  @include icon(22px, $color-text-primary);
+  @include icon(22px, $color-text-secondary);
 }
 
 @media (max-width: 767px) {

@@ -24,10 +24,10 @@
 }
 
 .activeOption {
-  background-color: $color-selected-option;
+  background-color: $color-secondary;
   color: $color-primary;
 
   &:hover {
-    background-color: $color-selected-option;
+    background-color: $color-secondary;
   }
 }

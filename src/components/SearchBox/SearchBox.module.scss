@@ -2,13 +2,7 @@
 @import '../../styles/mixins.scss';
 
 .input {
-  @include text-input();
+  @include text-input(16px);
   width: 200px;
   height: 25px;
-  font-size: 16px;
-
-  &:focus {
-    outline: none !important;
-    border: 1.5px solid $color-borders-highlight;
-  }
 }

@@ -1,5 +1,6 @@
 @import '../../styles/colors.scss';
 @import '../../styles/mixins.scss';
+@import '../../styles/shadows.scss';
 
 .mainContainer {
   position: fixed;
@@ -23,6 +24,7 @@
   color: $color-text-primary;
   padding: 40px 0 20px 30px;
   animation: slide-in 0.3s;
+  box-shadow: $shadow-strong-dark;
 }
 
 .closeButtonContainer {
@@ -30,7 +32,7 @@
 }
 
 .closeButton {
-  @include icon(22px, $color-text-primary);
+  @include icon(22px, $color-text-secondary);
 }
 
 @media (max-width: 530px) {

@@ -1,19 +1,16 @@
 @import '../../styles/colors.scss';
 @import '../../styles/mixins.scss';
+@import '../../styles/shadows.scss';
 
 .mainContainer {
   position: absolute;
   right: 30px;
   top: 20px;
   background-color: $color-primary;
-  border: 1px solid $color-borders-gray;
   border-radius: 8px;
   z-index: 1;
   overflow: hidden;
-
-  &:hover {
-    border-color: $color-borders-highlight;
-  }
+  box-shadow: $shadow-strong;
 }
 
 .dotsIconContainer {
@@ -25,7 +22,7 @@
 }
 
 .dotsIcon {
-  @include icon(22px, $color-text-primary);
+  @include icon(22px, $color-text-secondary);
 }
 
 .listIcon {

@@ -1,12 +1,18 @@
 @import './colors.scss';
 @import './shadows.scss';
 
-@mixin text-input {
+@mixin text-input ($font-size) {
   background-color: $color-input-background;
   color: $color-text-primary;
   border: 1.5px solid $color-borders-gray;
   border-radius: 4px;
   box-shadow: $shadow-inset;
+  font-size: $font-size;
+
+  &:focus {
+    outline: none !important;
+    border: 1.5px solid $color-input-focused;
+  }
 }
 
 @mixin filter-section-header {
