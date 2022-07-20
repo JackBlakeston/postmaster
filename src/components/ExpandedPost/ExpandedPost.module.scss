@@ -32,7 +32,7 @@
 }
 
 .buttonIcon {
-  @include icon(25px);
+  @include icon(25px, $color-primary);
 }
 
 .closeButtonContainer {
@@ -40,7 +40,7 @@
 }
 
 .closeButton {
-  @include icon(22px);
+  @include icon(22px, $color-text-primary);
 }
 
 @media (max-width: 767px) {

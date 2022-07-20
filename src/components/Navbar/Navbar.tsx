@@ -1,6 +1,6 @@
 import styles from './Navbar.module.scss';
 import NewPostButton from '../NewPostButton/NewPostButton';
-import Logo from '../../assets/images/postmaster.png';
+import Logo from '../../assets/images/logo.png';
 import { LOGO } from '../../constants';
 import SearchBox from '../SearchBox/SearchBox';
 import FiltersButton from '../FiltersButton/FiltersButton';

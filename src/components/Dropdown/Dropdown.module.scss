@@ -6,7 +6,7 @@
   right: 30px;
   top: 20px;
   background-color: $color-primary;
-  border: 1px solid $color-borders;
+  border: 1px solid $color-borders-gray;
   border-radius: 8px;
   z-index: 1;
   overflow: hidden;
@@ -25,9 +25,9 @@
 }
 
 .dotsIcon {
-  @include icon(22px);
+  @include icon(22px, $color-text-primary);
 }
 
-.icon {
-  @include icon(20px);
+.listIcon {
+  @include icon(20px, $color-text-primary);
 }

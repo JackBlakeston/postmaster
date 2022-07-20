@@ -1,5 +1,6 @@
 @import '../../styles/colors.scss';
 @import '../../styles/mixins.scss';
+@import '../../styles/shadows.scss';
 
 .mainContainer {
   position: relative;
@@ -7,8 +8,9 @@
   color: $color-text-primary;
   height: 260px;
   padding: 13px;
-  border: 1px solid $color-borders;
+  // border: 1px solid $color-borders-gray;
   border-radius: 8px;
+  box-shadow: $shadow-medium;
   transition: 0.15s ease;
   cursor: pointer;
   overflow: hidden;
@@ -17,6 +19,7 @@
   &:hover {
     border-color: $color-borders-highlight;
     transform: scale(1.02);
+    box-shadow: $shadow-strong;
 
     .dropdownIcon {
       display: flex;
@@ -39,5 +42,5 @@
   left: 0;
   right: 0;
   pointer-events: none;
-background: linear-gradient(180deg, rgba(255,255,255,0) 85%, rgba(26,26,27,1) 100%);
+background: linear-gradient(180deg, $color-transparent 85%, $color-primary 100%);
 }

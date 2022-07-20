@@ -1,16 +1,18 @@
 @import './colors.scss';
+@import './shadows.scss';
 
 @mixin text-input {
   background-color: $color-input-background;
   color: $color-text-primary;
-  border: 1.5px solid $color-borders;
+  border: 1.5px solid $color-borders-gray;
   border-radius: 4px;
+  box-shadow: $shadow-inset;
 }
 
 @mixin filter-section-header {
   margin: 20px 0 30px;
   padding: 5px 0;
-  border-bottom: 1px solid $color-borders;
+  border-bottom: 1px solid $color-borders-gray;
   margin-right: 100px;
 }
 
@@ -30,9 +32,12 @@
   width: $size;
   border-radius: 10px;
   cursor: pointer;
+  transition: 0.2s ease;
 
   &:hover {
     background-color: $color-element-hover;
+    transform: scale(1.05);
+    box-shadow: $shadow-soft;
   }
 }
 
@@ -43,10 +48,10 @@
   @include icon-button-container($size);
 }
 
-@mixin icon ($size) {
+@mixin icon ($size, $color) {
   width: $size;
   height: $size;
-  fill: $color-text-primary;
+  fill: $color;
 }
 
 @mixin secondary-text {
