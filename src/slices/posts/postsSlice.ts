@@ -31,7 +31,7 @@ const postsSlice = createSlice({
         ...action.payload,
         id: idCounter + 1,
         userId: 11
-        // Los osts nuevos son publicados como Admin
+        // Los posts nuevos son publicados como Admin
       });
       idCounter++;
     },

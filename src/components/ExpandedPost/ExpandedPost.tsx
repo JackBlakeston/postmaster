@@ -17,7 +17,6 @@ interface IExpandedPostProps {
 }
 
 const ExpandedPost = ({ post, handleEditClick, setIsModalVisible }: IExpandedPostProps) => {
-
   const dispatch = useAppDispatch();
   const user = useAppSelector((state) => selectUserById(state, post.userId));
 
@@ -26,7 +25,7 @@ const ExpandedPost = ({ post, handleEditClick, setIsModalVisible }: IExpandedPos
   };
 
   const handleDeletePostClick = () => {
-    dispatch(dispatch(postDeleted(post.id)));
+    dispatch(postDeleted(post.id));
     setIsModalVisible(false);
   };
 
@@ -40,21 +39,15 @@ const ExpandedPost = ({ post, handleEditClick, setIsModalVisible }: IExpandedPos
       <span className={styles.posterInfoText}>Posted by {user?.username}</span>
       <span className={styles.bodyText}>{capitalize(post.body)}</span>
       <div className={styles.buttonsContainer}>
-        <Button
-          text={DELETE}
-          onClick={handleDeletePostClick}
-        >
-          <DeleteIcon className={styles.buttonIcon}/>
+        <Button text={DELETE} onClick={handleDeletePostClick}>
+          <DeleteIcon className={styles.buttonIcon} />
         </Button>
-        <Button
-          text={EDIT}
-          onClick={handleEditPostClick}
-        >
-          <EditIcon className={styles.buttonIcon}/>
+        <Button text={EDIT} onClick={handleEditPostClick}>
+          <EditIcon className={styles.buttonIcon} />
         </Button>
       </div>
       <div className={styles.closeButtonContainer} onClick={handleCloseClick}>
-        <CloseIcon className={styles.closeButton}/>
+        <CloseIcon className={styles.closeButton} />
       </div>
     </div>
   );
